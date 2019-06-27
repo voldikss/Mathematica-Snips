@@ -4,4 +4,4 @@ A munker illusion implemented in Mathematica
 
 ## Glance
 
-![](https://user-images.githubusercontent.com/20282795/60269306-ca16b600-9920-11e9-9501-f3fb96465b21.PNG)
+![](https://user-images.githubusercontent.com/20282795/60278930-cdb33880-9932-11e9-8aad-ee5845a1f2e9.png)
