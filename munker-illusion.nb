@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     16869,        364]
-NotebookOptionsPosition[     16335,        346]
-NotebookOutlinePosition[     16690,        362]
-CellTagsIndexPosition[     16647,        359]
+NotebookDataLength[     18576,        398]
+NotebookOptionsPosition[     18053,        381]
+NotebookOutlinePosition[     18397,        396]
+CellTagsIndexPosition[     18354,        393]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -31,11 +31,28 @@ Cell[BoxData[
    RowBox[{"{", 
     RowBox[{
      RowBox[{"pointInterval", "=", "0.3"}], ",", 
-     RowBox[{"pointSize", "=", "Medium"}], ",", 
+     RowBox[{"pointSize", "=", "0.008"}], ",", 
      RowBox[{"sideLength", "=", "10"}], ",", 
-     RowBox[{"opacity", "=", "1"}]}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"radius", "=", "4"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"color1", "=", 
+      RowBox[{"RGBColor", "[", 
+       RowBox[{
+        RowBox[{"253", "/", "255"}], ",", 
+        RowBox[{"238", "/", "255"}], ",", 
+        RowBox[{"15", "/", "255"}]}], "]"}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{"color2", "=", 
+      RowBox[{"RGBColor", "[", 
+       RowBox[{
+        RowBox[{"120", "/", "255"}], ",", 
+        RowBox[{"31", "/", "255"}], ",", 
+        RowBox[{"199", "/", "255"}]}], "]"}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{"colorBall", "=", 
+      RowBox[{"RGBColor", "@", "\"\<#80f6e6\>\""}]}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"opacity", "=", "1"}]}], "\[IndentingNewLine]", "}"}], ",", 
+   "\[IndentingNewLine]", 
    RowBox[{"Panel", "@", 
-    RowBox[{"Column", "[", 
+    RowBox[{"Row", "[", 
      RowBox[{"{", "\[IndentingNewLine]", 
       RowBox[{
        RowBox[{"Column", "@", 
@@ -68,7 +85,23 @@ Cell[BoxData[
               RowBox[{"Dynamic", "@", "opacity"}], "]"}], ",", 
              RowBox[{"Dynamic", "@", 
               RowBox[{"(", 
-               RowBox[{"1", "-", "opacity"}], ")"}]}]}], "}"}]}]}], 
+               RowBox[{"1", "-", "opacity"}], ")"}]}]}], "}"}]}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"Row", "@", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"ColorSlider", "@", 
+              RowBox[{"Dynamic", "@", "color1"}]}], ",", 
+             "\"\<\[LongRightArrow]\>\"", ",", 
+             RowBox[{"Dynamic", "@", "color1"}]}], "}"}]}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"Row", "@", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"ColorSlider", "@", 
+              RowBox[{"Dynamic", "@", "color2"}]}], ",", 
+             "\"\<\[LongRightArrow]\>\"", ",", 
+             RowBox[{"Dynamic", "@", "color2"}]}], "}"}]}]}], 
          "\[IndentingNewLine]", "}"}]}], ",", "\[IndentingNewLine]", 
        RowBox[{"Column", "@", 
         RowBox[{"{", "\[IndentingNewLine]", 
@@ -80,23 +113,15 @@ Cell[BoxData[
               RowBox[{
                RowBox[{"{", "\[IndentingNewLine]", 
                 RowBox[{
-                 RowBox[{"RGBColor", "[", 
-                  RowBox[{
-                   RowBox[{"253", "/", "255"}], ",", 
-                   RowBox[{"238", "/", "255"}], ",", 
-                   RowBox[{"15", "/", "255"}], ",", "opacity"}], "]"}], ",", 
+                 RowBox[{"Opacity", "@", "opacity"}], ",", 
+                 "\[IndentingNewLine]", "color1", ",", 
                  RowBox[{"Rectangle", "[", 
                   RowBox[{
                    RowBox[{"{", 
                     RowBox[{"0", ",", "0"}], "}"}], ",", 
                    RowBox[{"{", 
                     RowBox[{"sideLength", ",", "sideLength"}], "}"}]}], "]"}],
-                  ",", "\[IndentingNewLine]", 
-                 RowBox[{"RGBColor", "[", 
-                  RowBox[{
-                   RowBox[{"120", "/", "255"}], ",", 
-                   RowBox[{"31", "/", "255"}], ",", 
-                   RowBox[{"199", "/", "255"}], ",", "opacity"}], "]"}], ",", 
+                  ",", "\[IndentingNewLine]", "color2", ",", 
                  RowBox[{"Rectangle", "[", 
                   RowBox[{
                    RowBox[{"{", 
@@ -110,17 +135,15 @@ Cell[BoxData[
              RowBox[{"Graphics", "[", 
               RowBox[{
                RowBox[{"{", "\[IndentingNewLine]", 
-                RowBox[{
-                 RowBox[{"RGBColor", "@", "\"\<#80f6e6\>\""}], ",", 
+                RowBox[{"colorBall", ",", 
                  RowBox[{"Ball", "[", 
                   RowBox[{
                    RowBox[{"{", 
                     RowBox[{
                     RowBox[{"sideLength", "/", "2"}], ",", 
                     RowBox[{"sideLength", "/", "2"}]}], "}"}], ",", 
-                   RowBox[{"sideLength", "/", "2"}]}], "]"}], ",", 
-                 "\[IndentingNewLine]", 
-                 RowBox[{"RGBColor", "@", "\"\<#80f6e6\>\""}], ",", 
+                   "radius"}], "]"}], ",", "\[IndentingNewLine]", "colorBall",
+                  ",", 
                  RowBox[{"Ball", "[", 
                   RowBox[{
                    RowBox[{"{", 
@@ -128,20 +151,18 @@ Cell[BoxData[
                     RowBox[{"sideLength", "*", 
                     RowBox[{"3", "/", "2"}]}], ",", 
                     RowBox[{"sideLength", "/", "2"}]}], "}"}], ",", 
-                   RowBox[{"sideLength", "/", "2"}]}], "]"}]}], 
-                "\[IndentingNewLine]", "}"}], ",", 
-               RowBox[{"ImageSize", "\[Rule]", "Large"}]}], "]"}], ",", 
+                   "radius"}], "]"}]}], "\[IndentingNewLine]", "}"}], ",", 
+               RowBox[{"ImageSize", "\[Rule]", "Large"}], ",", 
+               RowBox[{"ImagePadding", "\[Rule]", "25"}]}], "]"}], ",", 
              "\[IndentingNewLine]", 
              RowBox[{"Graphics", "[", 
               RowBox[{
                RowBox[{"{", "\[IndentingNewLine]", 
                 RowBox[{
-                 RowBox[{"PointSize", "[", "pointSize", "]"}], ",", 
-                 RowBox[{"RGBColor", "[", 
-                  RowBox[{
-                   RowBox[{"120", "/", "255"}], ",", 
-                   RowBox[{"31", "/", "255"}], ",", 
-                   RowBox[{"199", "/", "255"}], ",", "opacity"}], "]"}], ",", 
+                 RowBox[{"Opacity", "@", "opacity"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"PointSize", "[", "pointSize", "]"}], ",", "color2", 
+                 ",", "\[IndentingNewLine]", 
                  RowBox[{
                   RowBox[{
                    RowBox[{"Point", "@", 
@@ -159,12 +180,8 @@ Cell[BoxData[
                     RowBox[{
                     "j", ",", "0", ",", "sideLength", ",", "pointInterval"}], 
                     "}"}]}], "]"}]}], ",", "\[IndentingNewLine]", 
-                 RowBox[{"PointSize", "[", "pointSize", "]"}], ",", 
-                 RowBox[{"RGBColor", "[", 
-                  RowBox[{
-                   RowBox[{"253", "/", "255"}], ",", 
-                   RowBox[{"238", "/", "255"}], ",", 
-                   RowBox[{"15", "/", "255"}], ",", "opacity"}], "]"}], ",", 
+                 RowBox[{"PointSize", "[", "pointSize", "]"}], ",", "color1", 
+                 ",", "\[IndentingNewLine]", 
                  RowBox[{
                   RowBox[{
                    RowBox[{"Point", "@", 
@@ -225,99 +242,113 @@ Cell[BoxData[
    3.7706279151884513`*^9}, {3.770628016255851*^9, 3.770628222028387*^9}, {
    3.7706282662509985`*^9, 3.770628316097123*^9}, {3.770628401196412*^9, 
    3.7706284774052196`*^9}, 3.77062866246659*^9, {3.7706287082232494`*^9, 
-   3.7706287391370974`*^9}, {3.7706288543583536`*^9, 3.7706288583718705`*^9}},
- CellLabel->
-  "In[356]:=",ExpressionUUID->"e1049789-0711-4e0a-bb7a-b45bf3111069"],
+   3.7706287391370974`*^9}, {3.7706288543583536`*^9, 
+   3.7706288583718705`*^9}, {3.770636404775465*^9, 3.770636428841529*^9}, {
+   3.770636547831216*^9, 3.770636945659377*^9}, {3.770637166631734*^9, 
+   3.770637168011644*^9}, {3.770637214985466*^9, 3.770637215370315*^9}, {
+   3.7706372701012173`*^9, 3.770637307033166*^9}, {3.770637349457511*^9, 
+   3.7706373504111443`*^9}, {3.770637386602296*^9, 3.770637427445799*^9}, {
+   3.7706374719743137`*^9, 3.770637473017268*^9}},
+ CellLabel->"In[26]:=",ExpressionUUID->"e1049789-0711-4e0a-bb7a-b45bf3111069"],
 
 Cell[BoxData[
  DynamicModuleBox[{$CellContext`pointInterval$$ = 
-  0.2755, $CellContext`pointSize$$ = 
-  0.009000000000000001, $CellContext`sideLength$$ = 
-  10, $CellContext`opacity$$ = 0.9470000000000001}, 
+  0.3, $CellContext`pointSize$$ = 0.008, $CellContext`sideLength$$ = 
+  10, $CellContext`radius$$ = 4, $CellContext`color1$$ = RGBColor[
+   Rational[253, 255], 
+   Rational[14, 15], 
+   Rational[1, 17]], $CellContext`color2$$ = RGBColor[
+   Rational[8, 17], 
+   Rational[31, 255], 
+   Rational[199, 255]], $CellContext`colorBall$$ = RGBColor[
+  0.5019607843137255, 0.9647058823529412, 
+   0.9019607843137255], $CellContext`opacity$$ = 1}, 
   PanelBox[
-   TagBox[GridBox[{
-      {
-       TagBox[GridBox[{
-          {
-           TemplateBox[{"\"\:70b9\:95f4\:8ddd\:ff1a\"",SliderBox[
-              Dynamic[$CellContext`pointInterval$$], {0.2, 0.5}],DynamicBox[
-              ToBoxes[$CellContext`pointInterval$$, StandardForm]]},
-            "RowDefault"]},
-          {
-           TemplateBox[{"\"\:70b9\:5927\:5c0f\:ff1a\"",SliderBox[
-              Dynamic[$CellContext`pointSize$$], {0, 0.02, 0.001}],DynamicBox[
-              ToBoxes[$CellContext`pointSize$$, StandardForm]]},
-            "RowDefault"]},
-          {
-           TemplateBox[{"\"\:900f\:660e\:5ea6\:ff1a\"",SliderBox[
-              Dynamic[$CellContext`opacity$$]],DynamicBox[
-              ToBoxes[1 - $CellContext`opacity$$, StandardForm]]},
-            "RowDefault"]}
-         },
-         DefaultBaseStyle->"Column",
-         GridBoxAlignment->{"Columns" -> {{Left}}},
-         GridBoxItemSize->{
-          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-        "Column"]},
-      {
-       TagBox[GridBox[{
-          {
-           DynamicBox[ToBoxes[
-             Overlay[{
-               Graphics[{
-                 RGBColor[253/255, 238/255, 15/255, $CellContext`opacity$$], 
-                 
-                 Rectangle[{0, 
-                  0}, {$CellContext`sideLength$$, $CellContext`sideLength$$}], 
-                 RGBColor[120/255, 31/255, 199/255, $CellContext`opacity$$], 
-                 
-                 Rectangle[{$CellContext`sideLength$$, 0}, {
-                  2 $CellContext`sideLength$$, $CellContext`sideLength$$}]}, 
-                ImageSize -> Large], 
-               Graphics[{
-                 RGBColor["#80f6e6"], 
-                 
-                 Ball[{$CellContext`sideLength$$/2, $CellContext`sideLength$$/
-                   2}, $CellContext`sideLength$$/2], 
-                 RGBColor["#80f6e6"], 
-                 
-                 Ball[{$CellContext`sideLength$$ (3/
-                    2), $CellContext`sideLength$$/
-                   2}, $CellContext`sideLength$$/2]}, ImageSize -> Large], 
-               Graphics[{
-                 PointSize[$CellContext`pointSize$$], 
-                 RGBColor[120/255, 31/255, 199/255, $CellContext`opacity$$], 
-                 (Point[
-                  Flatten[#, 1]]& )[
-                  
-                  Table[{$CellContext`i, $CellContext`j}, {$CellContext`i, 
-                    0, $CellContext`sideLength$$, \
+   TemplateBox[{TagBox[
+      GridBox[{{
+         TemplateBox[{"\"\:70b9\:95f4\:8ddd\:ff1a\"", 
+           SliderBox[
+            Dynamic[$CellContext`pointInterval$$], {0.2, 0.5}], 
+           DynamicBox[
+            ToBoxes[$CellContext`pointInterval$$, StandardForm]]}, 
+          "RowDefault"]}, {
+         TemplateBox[{"\"\:70b9\:5927\:5c0f\:ff1a\"", 
+           SliderBox[
+            Dynamic[$CellContext`pointSize$$], {0, 0.02, 0.001}], 
+           DynamicBox[
+            ToBoxes[$CellContext`pointSize$$, StandardForm]]}, 
+          "RowDefault"]}, {
+         TemplateBox[{"\"\:900f\:660e\:5ea6\:ff1a\"", 
+           SliderBox[
+            Dynamic[$CellContext`opacity$$]], 
+           DynamicBox[
+            ToBoxes[1 - $CellContext`opacity$$, StandardForm]]}, 
+          "RowDefault"]}, {
+         TemplateBox[{
+           ColorSetterBox[
+            Dynamic[$CellContext`color1$$], "SwatchSpectrum"], 
+           "\"\[LongRightArrow]\"", 
+           DynamicBox[
+            ToBoxes[$CellContext`color1$$, StandardForm]]}, "RowDefault"]}, {
+         TemplateBox[{
+           ColorSetterBox[
+            Dynamic[$CellContext`color2$$], "SwatchSpectrum"], 
+           "\"\[LongRightArrow]\"", 
+           DynamicBox[
+            ToBoxes[$CellContext`color2$$, StandardForm]]}, "RowDefault"]}}, 
+       GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
+       "Column", 
+       GridBoxItemSize -> {
+        "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"],
+     TagBox[
+      GridBox[{{
+         DynamicBox[
+          ToBoxes[
+           Overlay[{
+             Graphics[{
+               Opacity[$CellContext`opacity$$], $CellContext`color1$$, 
+               
+               Rectangle[{0, 
+                0}, {$CellContext`sideLength$$, $CellContext`sideLength$$}], \
+$CellContext`color2$$, 
+               
+               Rectangle[{$CellContext`sideLength$$, 0}, {
+                2 $CellContext`sideLength$$, $CellContext`sideLength$$}]}, 
+              ImageSize -> Large], 
+             Graphics[{$CellContext`colorBall$$, 
+               
+               Ball[{$CellContext`sideLength$$/2, $CellContext`sideLength$$/
+                 2}, $CellContext`radius$$], $CellContext`colorBall$$, 
+               
+               Ball[{$CellContext`sideLength$$ (3/
+                  2), $CellContext`sideLength$$/2}, $CellContext`radius$$]}, 
+              ImageSize -> Large, ImagePadding -> 25], 
+             Graphics[{
+               Opacity[$CellContext`opacity$$], 
+               PointSize[$CellContext`pointSize$$], $CellContext`color2$$, 
+               (Point[
+                Flatten[#, 1]]& )[
+                
+                Table[{$CellContext`i, $CellContext`j}, {$CellContext`i, 
+                  0, $CellContext`sideLength$$, \
 $CellContext`pointInterval$$}, {$CellContext`j, 
-                    0, $CellContext`sideLength$$, \
+                  0, $CellContext`sideLength$$, \
 $CellContext`pointInterval$$}]], 
-                 PointSize[$CellContext`pointSize$$], 
-                 RGBColor[253/255, 238/255, 15/255, $CellContext`opacity$$], 
-                 (Point[
-                  Flatten[#, 1]]& )[
-                  
-                  Table[{$CellContext`i, $CellContext`j}, {$CellContext`i, \
+               PointSize[$CellContext`pointSize$$], $CellContext`color1$$, 
+               (Point[
+                Flatten[#, 1]]& )[
+                
+                Table[{$CellContext`i, $CellContext`j}, {$CellContext`i, \
 $CellContext`sideLength$$, 
-                    2 $CellContext`sideLength$$, \
-$CellContext`pointInterval$$}, {$CellContext`j, 
-                    0, $CellContext`sideLength$$, \
-$CellContext`pointInterval$$}]]}, ImageSize -> Large]}], StandardForm],
-            ImageSizeCache->{720., {183., 191.}}]}
-         },
-         DefaultBaseStyle->"Column",
-         GridBoxAlignment->{"Columns" -> {{Left}}},
-         GridBoxItemSize->{
-          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-        "Column"]}
-     },
-     DefaultBaseStyle->"Column",
-     GridBoxAlignment->{"Columns" -> {{Left}}},
-     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
-    "Column"]],
+                  2 $CellContext`sideLength$$, $CellContext`pointInterval$$}, \
+{$CellContext`j, 
+                  0, $CellContext`sideLength$$, \
+$CellContext`pointInterval$$}]]}, ImageSize -> Large]}], StandardForm]]}}, 
+       GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
+       "Column", 
+       GridBoxItemSize -> {
+        "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"]},
+    "RowDefault"]],
   DynamicModuleValues:>{}]], "Output",
  GeneratedCell->False,
  CellAutoOverwrite->False,
@@ -339,15 +370,18 @@ $CellContext`pointInterval$$}]]}, ImageSize -> Large]}], StandardForm],
    3.770628270467383*^9, 3.770628316606803*^9}, {3.7706284065221095`*^9, 
    3.7706284779268975`*^9}, 3.770628665084965*^9, 3.7706287398026853`*^9, 
    3.770628859412223*^9, {3.7706289147059755`*^9, 3.770628928815235*^9}, 
-   3.770629128569501*^9, 
-   3.770629235183467*^9},ExpressionUUID->"d7db972b-026f-4392-a5be-\
-1eddef9214ec"]
+   3.770629128569501*^9, 3.770629235183467*^9, {3.7706364075917664`*^9, 
+   3.770636429363533*^9}, 3.770636595850366*^9, {3.77063665479209*^9, 
+   3.770636744514265*^9}, 3.7706368077915773`*^9, 3.770636837816885*^9, 
+   3.7706369462144957`*^9, {3.770637159766677*^9, 3.770637168400188*^9}, {
+   3.770637338123435*^9, 3.77063736826691*^9}, {3.7706374167106867`*^9, 
+   3.7706374280467653`*^9}, {3.7706374608148327`*^9, 3.7706374932415733`*^9}},
+ CellLabel->"Out[26]=",ExpressionUUID->"0d09d532-85e9-45a3-8186-e622f1552e61"]
 }, Open  ]]
 },
-WindowSize->{1366, 725},
-WindowMargins->{{-8, Automatic}, {Automatic, 0}},
-FrontEndVersion->"12.0 for Microsoft Windows (64-bit) (2019\:5e744\:67088\
-\:65e5)",
+WindowSize->{1313, 704},
+WindowMargins->{{0, Automatic}, {0, Automatic}},
+FrontEndVersion->"11.3 for Linux x86 (64-bit) (2018\:5e743\:67086\:65e5)",
 StyleDefinitions->"Default.nb"
 ]
 (* End of Notebook Content *)
@@ -363,8 +397,8 @@ CellTagsIndex->{}
 Notebook[{
 Cell[558, 20, 181, 3, 35, "Input",ExpressionUUID->"0916d85a-f255-4711-84b6-6c1450017536"],
 Cell[CellGroupData[{
-Cell[764, 27, 10281, 202, 1186, "Input",ExpressionUUID->"e1049789-0711-4e0a-bb7a-b45bf3111069"],
-Cell[11048, 231, 5271, 112, 512, "Output",ExpressionUUID->"d7db972b-026f-4392-a5be-1eddef9214ec"]
+Cell[764, 27, 11228, 224, 1633, "Input",ExpressionUUID->"e1049789-0711-4e0a-bb7a-b45bf3111069"],
+Cell[11995, 253, 6042, 125, 373, "Output",ExpressionUUID->"0d09d532-85e9-45a3-8186-e622f1552e61"]
 }, Open  ]]
 }
 ]
