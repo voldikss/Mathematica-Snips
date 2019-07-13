@@ -1,0 +1,10 @@
+| Created by Marc Mentat 2010.1.0 (64bit)
+*prog_option compatibility:prog_version:ment2010
+|
+*open_model "d:\desktop\cms\fem\proj\marc软件进行验证\proj - 副本.mud"
+*fill_view
+*colormap 2
+*contourmap 2
+*fill_view
+q
+y
